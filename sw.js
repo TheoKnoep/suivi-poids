@@ -1,3 +1,6 @@
+/*
+Last update : 2022-01-19 23:02
+*/
 let staticCacheName = "pwa";
 let staticAssets = [
 	"/", 

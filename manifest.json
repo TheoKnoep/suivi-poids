@@ -8,13 +8,13 @@
     "categories": "health",
     "lang": "fr",
     "orientation": "any",
-    "scope": "/",
+    "scope": "./",
     "theme_color": "#009688",
     "icons": [
         {
             "src": "/assets/ico-suivi-poids.png",
             "sizes": "512x512", 
-            "type": "png"
+            "type": "image/png"
         },
         {
             "src": "/assets/icon_48x48.png",

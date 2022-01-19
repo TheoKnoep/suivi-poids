@@ -17,6 +17,7 @@
 
 	<!-- Meta Tags required for Progressive Web App -->
 	<meta name="apple-mobile-web-app-status-bar" content="#009688">
+	<meta name="apple-touch-icon" content="images/icon_192x192.png">
 	<meta name="theme-color" content="#009688">
 	
 	<!-- Manifest File link -->
@@ -79,12 +80,12 @@
 		async function registerSW() {
 			if ('serviceWorker' in navigator) {
 				try {
-				await navigator
-						.serviceWorker
-						.register('sw.js');
+					await navigator
+							.serviceWorker
+							.register('sw.js');
 				}
 				catch (e) {
-				console.log('SW registration failed');
+					console.log('SW registration failed', e);
 				}
 			}
 		}
