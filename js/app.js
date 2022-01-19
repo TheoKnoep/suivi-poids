@@ -18,11 +18,7 @@ formWeight.addEventListener('submit', (event) => {
 		console.log(key, value); 
 		myWeights.addWeight(value); 
 	}
-
-
 	document.querySelector('.form').innerHTML = `<div class="card-panel green accent-2">Enregistré !</div>`; 
-	
-	// alert('Enregistré !'); 
 })
 
 
@@ -31,6 +27,7 @@ const historic = document.querySelector('#historic');
 function displayHistoric() {
 	let data = myWeights.retrieveWeight(); 
 	console.log(data); 
+	if (data.length < 4) {return}
 	for (let i = data.length-1; i > data.length-4; i--) {
 		console.log(i, data[i].kg); 
 		console.log(new Date(data[i].date).toLocaleDateString(), ' - ', new Date(data[i].date).toLocaleTimeString()); 
