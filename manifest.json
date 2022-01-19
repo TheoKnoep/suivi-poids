@@ -1,14 +1,14 @@
 {
     "name": "Suivi poids",
     "short_name": "Suivi poids",
-    "start_url": "/",
+    "start_url": "/suivi-poids/",
     "display": "fullscreen",
     "background_color": "#fff",
     "dir": "ltr",
     "categories": "health",
     "lang": "fr",
     "orientation": "any",
-    "scope": "./",
+    "scope": "/suivi-poids/",
     "theme_color": "#009688",
     "icons": [
         {
