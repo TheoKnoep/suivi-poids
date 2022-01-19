@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Accueil</title>
+
+	<!-- Materialize -->
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.js"></script>
+
+	<!-- More style -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="teal">
+			<div class="nav-wrapper container ">
+			  <a href="./" class="brand-logo">Hello</a>
+			  <ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="#">Stats</a></li>
+			  </ul>
+			</div>
+		  </nav>
+	</header>
+
+	<main class="container">
+		<div class="form">
+			<form action="" id="weight-form">
+				<label>Saisie du poids : </label>
+				<input type="number" id="weight" name="weight" autofocus />
+				<input type="submit" id="submit" name="submit" class="btn" />
+			</form>
+		</div>
+	</main>
+
+	<footer class="page-footer teal">
+		<div class="container">
+		  <div class="row">
+			<div class="col l6 s12">
+			  <h5 class="white-text">Footer Content</h5>
+			  <p class="grey-text text-lighten-4">Cette appli vous permet de suivre l'évolution de votre poids</p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+			  <h5 class="white-text">Historique</h5>
+			  <ul id="historic">	
+			  </ul>
+			</div>
+		  </div>
+		</div>
+		<div class="footer-copyright">
+		  <div class="container">
+		  © 2021 <a href="https://github.com/TheoKnoep">Théo Knoepflin</a>
+		  </div>
+		</div>
+	</footer>
+
+	<script src="js/Weight.js"></script>
+	<script src="js/User.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
