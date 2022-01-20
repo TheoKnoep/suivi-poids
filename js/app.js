@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const formWeight = document.querySelector('#weight-form'); 
 
-
 formWeight.addEventListener('submit', (event) => {
 	event.preventDefault(); 
 	let data = new FormData(formWeight); 
@@ -39,9 +38,4 @@ function displayHistoric() {
 
 
 
-const exportBtn = document.getElementById('export-data'); 
-exportBtn.addEventListener('click', event => {
-	console.log(JSON.stringify( myWeights.retrieveWeight() ));
-	let exported = JSON.stringify( myWeights.retrieveWeight() ); 
-	document.querySelector('main').insertAdjacentHTML('beforeend', exported); 
-})
+

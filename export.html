@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Accueil</title>
+
+	<!-- Materialize -->
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.js"></script>
+
+	<!-- More style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Meta Tags required for Progressive Web App -->
+	<meta name="apple-mobile-web-app-status-bar" content="#009688">
+	<meta name="apple-touch-icon" content="images/icon_192x192.png">
+	<meta name="theme-color" content="#009688">
+	
+	<!-- Manifest File link -->
+	<link rel="manifest" href="manifest.json">
+ 
+</head>
+<body>
+	<header>
+		<nav class="teal">
+			<div class="nav-wrapper container ">
+				<a href="./" class="">Importer des données</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#">Stats</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<h2>Exporter les données</h2>
+		<button id="submit-export" class="btn">Exporter</button>
+		<div id="exported-data"></div>
+
+		<hr/>
+	
+		<div id="import-data" class="form">
+			<h2>Importer des données</h2>
+			<textarea id="import-form" class="import-form"></textarea>
+			<button id="submit-import" class="btn">Valider</button>
+		</div>
+	</div>
+
+	<footer>
+		Footer
+	</footer>
+	
+
+
+
+	<script src="js/Weight.js"></script>
+	<script>
+		let myWeights = new Weights();
+		console.log( JSON.stringify(myWeights.retrieveWeight()) ); 
+
+		
+
+		const submitBtn = document.getElementById('submit-import'); 
+		submitBtn.addEventListener('click', event => {
+			let weightsToImport = document.getElementById('import-form').value; 
+			console.log(weightsToImport, typeof weightsToImport); 
+			let jsonToImport = JSON.parse(weightsToImport); 
+			console.log(jsonToImport, typeof jsonToImport); 
+			myWeights.importData(jsonToImport); 
+		})
+
+		const exportBtn = document.getElementById('submit-export'); 
+		const outputExport = document.getElementById('exported-data'); 
+		exportBtn.addEventListener('click', event => {
+			let exported = JSON.stringify( myWeights.retrieveWeight() ); 
+			outputExport.textContent = exported; 
+		})
+
+		outputExport.addEventListener('click', event => {
+			if (outputExport.textContent.trim().length > 0) {
+				navigator.clipboard.writeText(outputExport.textContent)
+					.then( alert('Texte copié') ); 
+			}
+		})
+
+
+
+	</script>
+	
+</body>
+</html>
