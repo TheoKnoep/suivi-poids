@@ -35,3 +35,13 @@ function displayHistoric() {
 		historic.insertAdjacentHTML('beforeend', newInsert); 
 	}
 }
+
+
+
+
+const exportBtn = document.getElementById('export-data'); 
+exportBtn.addEventListener('click', event => {
+	console.log(JSON.stringify( myWeights.retrieveWeight() ));
+	let exported = JSON.stringify( myWeights.retrieveWeight() ); 
+	document.querySelector('main').insertAdjacentHTML('beforeend', exported); 
+})

@@ -12,6 +12,10 @@ class Weights {
 		return JSON.parse(localStorage.getItem('weights')); 
 	}
 
+	importWeight(data) {
+		localStorage.setItem("weights", JSON.stringify(data));
+	}
+
 	addWeight(weight) {
 		this.collection.push({
 			kg: weight,
