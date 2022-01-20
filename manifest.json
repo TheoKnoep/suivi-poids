@@ -7,44 +7,51 @@
     "dir": "ltr",
     "categories": "health",
     "lang": "fr",
-    "orientation": "any",
+    "orientation": "portrait",
     "scope": "/suivi-poids/",
     "theme_color": "#009688",
     "icons": [
         {
             "src": "./assets/ico-suivi-poids.png",
             "sizes": "512x512", 
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_48x48.png",
             "sizes": "48x48",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_72x72.png",
             "sizes": "72x72",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_96x96.png",
             "sizes": "96x96",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_144x144.png",
             "sizes": "144x144",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_168x168.png",
             "sizes": "168x168",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         },
         {
             "src": "./assets/icon_192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable any"
         }
     ]
 }
