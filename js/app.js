@@ -24,18 +24,16 @@ formWeight.addEventListener('submit', (event) => {
 
 const historic = document.querySelector('#historic'); 
 function displayHistoric() {
-	let data = myWeights.retrieveWeight(); 
-	console.log(data); 
-	if (data.length < 4) {return}
-	for (let i = data.length-1; i > data.length-4; i--) {
-		console.log(i, data[i].kg); 
-		console.log(new Date(data[i].date).toLocaleDateString(), ' - ', new Date(data[i].date).toLocaleTimeString()); 
-		let newInsert = `<li>${new Date(data[i].date).toLocaleDateString()} &ndash; ${new Date(data[i].date).toLocaleTimeString()} : ${data[i].kg} kg</li>`; 
-		historic.insertAdjacentHTML('beforeend', newInsert); 
+	let data = myWeights.sortWeightsByDate();  
+	for (let i = 0; i < 3 ; i++) {
+		if (data[i]) {
+			// console.log(i, data[i].kg); 	
+			// console.log(new Date(data[i].date).toLocaleDateString(), ' - ', new Date(data[i].date).toLocaleTimeString()); 
+			let newInsert = `<li>${new Date(data[i].date).toLocaleDateString()} &ndash; ${new Date(data[i].date).toLocaleTimeString()} : ${data[i].kg} kg</li>`; 
+			historic.insertAdjacentHTML('beforeend', newInsert); 
+		}
 	}
 }
-
-
 
 
 

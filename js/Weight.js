@@ -17,7 +17,7 @@ class Weights {
 			kg: weight,
 			date: new Date()
 		})
-		localStorage.setItem("weights", JSON.stringify(this.collection));
+		this.pushToLocal(); 
 	}
 
 	deleteAllWeights() {
@@ -29,7 +29,21 @@ class Weights {
 		for (let i in array) {
 			this.collection.push(array[i]); 
 		}
+		this.pushToLocal(); 
+	}
+
+	pushToLocal() {
 		localStorage.setItem("weights", JSON.stringify(this.collection));
 	}
-	
+
+	sortWeightsByDate() {
+		this.collection.sort(function compare (a, b) {
+			if (a.date < b.date)
+				return 1; 
+			if (a.date > b.date)
+				return -1;  
+			return 0; 
+		})
+		return this.collection; 
+	}
 }
