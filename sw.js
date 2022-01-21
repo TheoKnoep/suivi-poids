@@ -10,7 +10,14 @@ let staticAssets = [
 	"js/User.js", 
 	"js/Weight.js", 
 	"css/materialize.css", 
-	"css/style.css"
+	"css/style.css", 
+	"assets/ico-suivi-poids.png",
+	"assets/icon_48x48.png",
+	"assets/icon_72x72.png",
+	"assets/icon96x96_.png",
+	"assets/icon_144x144.png",
+	"assets/icon_168x168.png",
+	"assets/icon_192x192.png"
 ]
  
 self.addEventListener("install", function (event) {
@@ -22,27 +29,16 @@ self.addEventListener("install", function (event) {
   	);
 });
  
-self.addEventListener("fetch", function (event) {
-//   console.log(event.request.url);
- 
-  event.respondWith(
-    // caches.match(event.request)
-	// 	.then(function (response) {
-	// 		return response || fetch(event.request);
-	// 	})
-	// fetch(event.request)
-	// 	.then(res => {
-	// 		console.log(res.status); 
-	// 		return res; 
-	// 	})
-	// 	.catch(err => {
-	// 		console.log('Meh ', err); 
-	// 	})
-
-	fetch(event.request)
-		.catch(function() {
-		return caches.match(event.request)
-	})
-
-  );
+self.addEventListener('fetch', (e) => {
+	e.respondWith(
+		fetch(e.request)
+			.then(res => {
+				console.log(res.ok); 
+				return res; 
+			})
+			.catch(err => {
+				console.log('Catch error : ', err); 
+				return caches.match(e.request); 
+			})
+	);
 });
