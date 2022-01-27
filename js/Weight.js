@@ -8,7 +8,7 @@ class Weights {
 		console.log(display); 
 	}
 
-	retrieveWeight() {
+	retrieveWeights() {
 		return JSON.parse(localStorage.getItem('weights')); 
 	}
 

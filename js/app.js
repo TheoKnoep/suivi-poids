@@ -24,7 +24,9 @@ formWeight.addEventListener('submit', (event) => {
 
 const historic = document.querySelector('#historic'); 
 function displayHistoric() {
+	console.log('---------------------------------', myWeights.retrieveWeights()); 
 	let data = myWeights.sortWeightsByDate();  
+	console.log('---------------------------------', data); 
 	for (let i = 0; i < 3 ; i++) {
 		if (data[i]) {
 			// console.log(i, data[i].kg); 	

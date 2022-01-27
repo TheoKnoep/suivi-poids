@@ -50,8 +50,28 @@
 		</div>
 	</div>
 
-	<footer>
-		Footer
+	<footer class="page-footer teal">
+		<div class="container">
+		  <div class="row">
+			<div class="col l6 s12">
+			  <h5 class="white-text">Heyyo</h5>
+			  <p class="grey-text text-lighten-4">Cette appli vous permet de suivre l'évolution de votre poids</p>
+			  <ul>
+				  <li><a class="white-link" href="export.html">Export</a></li>
+			  </ul>
+			</div>
+			<div class="col l4 offset-l2 s12">
+			  <h5 class="white-text">Historique</h5>
+			  <ul id="historic">	
+			  </ul>
+			</div>
+		  </div>
+		</div>
+		<div class="footer-copyright">
+		  <div class="container">
+		  © 2021 <a class="white-link" href="https://github.com/TheoKnoep">Théo Knoepflin</a>
+		  </div>
+		</div>
 	</footer>
 	
 
@@ -60,23 +80,27 @@
 	<script src="js/Weight.js"></script>
 	<script>
 		let myWeights = new Weights();
-		console.log( JSON.stringify(myWeights.retrieveWeight()) ); 
+		console.log( JSON.stringify(myWeights.retrieveWeights()) ); 
 
 		
 
 		const submitBtn = document.getElementById('submit-import'); 
 		submitBtn.addEventListener('click', event => {
-			let weightsToImport = document.getElementById('import-form').value; 
-			console.log(weightsToImport, typeof weightsToImport); 
-			let jsonToImport = JSON.parse(weightsToImport); 
-			console.log(jsonToImport, typeof jsonToImport); 
-			myWeights.importData(jsonToImport); 
+			if (confirm('Remplace les données enregistrées par le tableau fourni dans ce formulaire')) {
+				let weightsToImport = document.getElementById('import-form').value; 
+				console.log(weightsToImport, typeof weightsToImport); 
+				let jsonToImport = JSON.parse(weightsToImport); 
+				console.log(jsonToImport, typeof jsonToImport); 
+				myWeights.deleteAllWeights(); 
+				myWeights.importData(jsonToImport); 
+				alert('Données importées avec succès'); 
+			}
 		})
 
 		const exportBtn = document.getElementById('submit-export'); 
 		const outputExport = document.getElementById('exported-data'); 
 		exportBtn.addEventListener('click', event => {
-			let exported = JSON.stringify( myWeights.retrieveWeight() ); 
+			let exported = JSON.stringify( myWeights.retrieveWeights() ); 
 			outputExport.textContent = exported; 
 		})
 
